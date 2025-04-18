@@ -7,6 +7,8 @@ class AppTextField extends StatefulWidget {
   final String hintText;
   final bool obscureText;
   final Function(String)? onChanged;
+  final void Function(String)? onSubmitted;
+  final void Function()? onTap;
   final IconData? prefixIcon;
   final Widget? suffixIcon;
   final TextInputType fieldType;
@@ -17,6 +19,8 @@ class AppTextField extends StatefulWidget {
     required this.hintText,
     this.obscureText = false,
     this.onChanged,
+    this.onSubmitted,
+    this.onTap,
     this.prefixIcon,
     this.suffixIcon,
     required this.fieldType,
@@ -82,6 +86,9 @@ class _AppTextFieldState extends State<AppTextField> {
         controller: widget.controller,
         obscureText: _obscureText,
         onChanged: widget.onChanged,
+        onSubmitted: widget.onSubmitted,
+        onTap: widget.onTap,
+        keyboardType: widget.fieldType,
         decoration: InputDecoration(
           filled: true,
           fillColor: AppColors.white,
@@ -140,7 +147,6 @@ class _AppTextFieldState extends State<AppTextField> {
                       : null)
                   : null),
         ),
-        keyboardType: widget.fieldType,
       ),
     );
   }

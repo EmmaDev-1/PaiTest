@@ -13,6 +13,8 @@ class AppColors {
 
   static const Color white = Color.fromARGB(255, 255, 255, 255);
 
+  static const Color transparent = Color.fromARGB(0, 255, 255, 255);
+
   static const Color accent = Color.fromARGB(255, 29, 77, 230);
 
   static const Color greenSeafoam = Color.fromARGB(255, 54, 205, 162);
@@ -23,7 +25,7 @@ class AppColors {
 
   static const Color darkred = Color.fromARGB(255, 196, 40, 40);
 
-  static const Color darkBlue = Color(0xFF1F4368);
+  static const Color darkBlue = Color.fromARGB(255, 14, 21, 86);
 
   static const Color green = Color.fromARGB(255, 76, 175, 80);
 
@@ -36,4 +38,6 @@ class AppColors {
   static const Color darkorange = Color.fromARGB(255, 239, 108, 0);
 
   static const Color lightorange = Color.fromARGB(255, 255, 243, 224);
+
+  static const Color yellow = Color.fromARGB(255, 246, 255, 0);
 }

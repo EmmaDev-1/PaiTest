@@ -14,6 +14,15 @@ class AppScaffold extends StatelessWidget {
   /// An optional drawer widget.
   final Widget? drawer;
 
+  /// An optional floating action button.
+  final Widget? floatingActionButton;
+
+  /// An optional location for the floating action button.
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
+
+  /// An optional animator for the floating action button.
+  final FloatingActionButtonAnimator? floatingActionButtonAnimator;
+
   /// An optional bottom navigation bar widget.
   final Widget? bottomNavigationBar;
 
@@ -26,14 +35,21 @@ class AppScaffold extends StatelessWidget {
   /// Optional padding to override the default horizontal padding.
   final EdgeInsetsGeometry? padding;
 
+  /// Is the content scrollable.
+  final bool? isScrollable;
+
   const AppScaffold({
     super.key,
     this.appBar,
     this.drawer,
+    this.floatingActionButton,
+    this.floatingActionButtonLocation,
+    this.floatingActionButtonAnimator,
     this.bottomNavigationBar,
     required this.body,
     this.backgroundColor,
     this.padding,
+    this.isScrollable,
   });
 
   @override
@@ -41,15 +57,24 @@ class AppScaffold extends StatelessWidget {
     return Scaffold(
       appBar: appBar,
       drawer: drawer,
+      floatingActionButton: floatingActionButton,
+      floatingActionButtonLocation: floatingActionButtonLocation,
+      floatingActionButtonAnimator: floatingActionButtonAnimator,
       bottomNavigationBar: bottomNavigationBar,
       backgroundColor: backgroundColor ?? AppColors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: padding ?? EdgeInsets.symmetric(horizontal: 8.w),
-            child: body,
-          ),
-        ),
+        child:
+            isScrollable == false
+                ? Padding(
+                  padding: padding ?? EdgeInsets.symmetric(horizontal: 6.w),
+                  child: body,
+                )
+                : SingleChildScrollView(
+                  child: Padding(
+                    padding: padding ?? EdgeInsets.symmetric(horizontal: 6.w),
+                    child: body,
+                  ),
+                ),
       ),
     );
   }

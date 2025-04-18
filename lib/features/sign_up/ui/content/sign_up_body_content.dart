@@ -115,7 +115,6 @@ class _SignUpBodyContentState extends State<SignUpBodyContent> {
             ],
           ),
         ),
-        AppGaps.gap4h(),
       ],
     );
   }

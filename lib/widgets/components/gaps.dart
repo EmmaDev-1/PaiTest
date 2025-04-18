@@ -27,6 +27,7 @@ class AppGaps {
   static Widget gap30w() => SizedBox(width: 30.w);
 
   // Vertical gaps
+  static Widget gap1h() => SizedBox(height: 1.h);
   static Widget gap2h() => SizedBox(height: 2.h);
   static Widget gap4h() => SizedBox(height: 4.h);
   static Widget gap6h() => SizedBox(height: 6.h);

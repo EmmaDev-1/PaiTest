@@ -7,7 +7,7 @@ class AppText extends StatelessWidget {
   final double? fontSize;
   final FontWeight? fontWeight;
   final TextAlign? textAlign;
-  final TextDirection? textDirection;
+  final TextDecoration? textDirection;
   final Locale? locale;
   final int? maxLines;
   final TextOverflow? overflow;
@@ -42,13 +42,13 @@ class AppText extends StatelessWidget {
       color: color,
       fontSize: fontSize,
       fontWeight: fontWeight,
+      decoration: textDirection,
     );
 
     return Text(
       data,
       style: effectiveStyle,
       textAlign: textAlign,
-      textDirection: textDirection,
       locale: locale,
       maxLines: maxLines,
       overflow: overflow,

@@ -39,9 +39,9 @@ class _CirculesAnimationBackgroundState
               double t = _controller.value; // t varía de 0 a 1
               // Aumentamos el rango del movimiento multiplicando los offsets
               _circle1OffsetX = 120 * math.sin(2 * math.pi * t);
-              _circle1OffsetY = 14 * math.cos(2 * math.pi * t);
+              _circle1OffsetY = 5 * math.cos(2 * math.pi * t);
               _circle2OffsetX = 120 * math.sin(2 * math.pi * t + 1);
-              _circle2OffsetY = 14 * math.cos(2 * math.pi * t + 1);
+              _circle2OffsetY = 5 * math.cos(2 * math.pi * t + 1);
             });
           })
           ..repeat(reverse: true);

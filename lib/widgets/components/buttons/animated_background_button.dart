@@ -6,7 +6,7 @@ import '../../../utils/animations/circules_animation_background.dart';
 import '../app_text.dart';
 
 class AnimatedBackgroundButton extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String text;
 
   const AnimatedBackgroundButton({
