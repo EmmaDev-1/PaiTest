@@ -26,7 +26,7 @@ Cada *feature* sigue **Clean Architecture** (domain, data, ui) y usa **Riverpod*
 
 1. Clona el repositorio:
    ```bash
-git clone https://github.com/usuario/pai_subscriptions.git
+   git clone [https://github.com/EmmaDev1/Pai_Test.git](https://github.com/EmmaDev-1/PaiTest)
 cd pai_subscriptions
 ```
 2. Instala dependencias:
@@ -34,7 +34,8 @@ cd pai_subscriptions
 flutter pub get
 ```
 3. Ejecuta en emulador o dispositivo:
-flutter run
+   ```bash
+   flutter run
 
 
 > **Requisitos**: Flutter >=3.0.0, Dart 2.17+, Android Studio/Xcode o emulador.
