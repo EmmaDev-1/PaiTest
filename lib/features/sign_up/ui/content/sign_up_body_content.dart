@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pai/utils/app_toast.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../utils/colors.dart';
@@ -7,26 +9,50 @@ import '../../../../widgets/components/buttons/animated_background_button.dart';
 import '../../../../widgets/components/app_text.dart';
 import '../../../../widgets/components/app_text_field.dart';
 import '../../../../widgets/components/gaps.dart';
+import '../../domain/models/sign_up.dart';
+import '../../providers/auth_provider.dart';
 
-class SignUpBodyContent extends StatefulWidget {
+class SignUpBodyContent extends ConsumerStatefulWidget {
   const SignUpBodyContent({super.key});
-
   @override
-  State<SignUpBodyContent> createState() => _SignUpBodyContentState();
+  ConsumerState<SignUpBodyContent> createState() => _SignUpBodyContentState();
 }
 
-class _SignUpBodyContentState extends State<SignUpBodyContent> {
+class _SignUpBodyContentState extends ConsumerState<SignUpBodyContent> {
   // Text field controllers
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _nombreController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _telefonoController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _verifyPasswordController =
-      TextEditingController();
+  final _usernameController = TextEditingController();
+  final _nombreController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _telefonoController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _verifyPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final signUpState = ref.watch(signUpNotifierProvider);
+
+    ref.listen<AsyncValue<void>>(signUpNotifierProvider, (prev, next) {
+      next.when(
+        data: (_) {
+          // registro exitoso → navegar o mostrar mensaje
+          context.go('/dashboard');
+          AppToast.show(
+            context: context,
+            message: 'Cuenta creada',
+            type: AppToastType.success,
+          );
+        },
+        error: (e, _) {
+          final msg = e is Exception ? e.toString() : 'Error desconocido';
+          AppToast.show(
+            context: context,
+            message: msg,
+            type: AppToastType.warning,
+          );
+        },
+        loading: () {},
+      );
+    });
     return Column(
       children: [
         AppGaps.gap4h(),
@@ -91,10 +117,29 @@ class _SignUpBodyContentState extends State<SignUpBodyContent> {
 
         // sign up button
         AnimatedBackgroundButton(
-          onPressed: () {
-            context.push('/otpCode');
-          },
-          text: "Crear una cuenta",
+          onPressed:
+              signUpState.isLoading
+                  ? null
+                  : () {
+                    if (_passwordController.text !=
+                        _verifyPasswordController.text) {
+                      AppToast.show(
+                        context: context,
+                        message: 'Las contraseñas no coinciden',
+                        type: AppToastType.warning,
+                      );
+                      return;
+                    }
+                    final params = SignUpParams(
+                      username: _usernameController.text,
+                      name: _nombreController.text,
+                      email: _emailController.text,
+                      phone: _telefonoController.text,
+                      password: _passwordController.text,
+                    );
+                    ref.read(signUpNotifierProvider.notifier).signUp(params);
+                  },
+          text: signUpState.isLoading ? 'Creando...' : 'Crear una cuenta',
         ),
         AppGaps.gap2h(),
 

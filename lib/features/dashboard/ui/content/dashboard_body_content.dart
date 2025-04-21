@@ -16,28 +16,21 @@ class DashboardBodyContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
-          child: Column(
-            children: [
-              AppGaps.gap2h(),
-              // Card for displaying subscription status
-              SubscriptionStatusCard(
-                subscriptionStatus: subscription.subscriptionStatus,
-                subscriptionName: subscription.subscriptionName,
-              ),
-              AppGaps.gap2h(),
-              // Card for displaying next payment information
-              PaymentInfoCard(
-                nextPaymentDate: subscription.nextPaymentDate,
-                paymentAmount: subscription.paymentAmount,
-                paymentHistory: subscription.paymentHistory,
-              ),
-            ],
-          ),
-        ),
-        SimpleButton(
-          onPressed: () => context.push('/paymentMethods'),
-          text: "Método de pago",
+        Column(
+          children: [
+            // Card for displaying subscription status
+            SubscriptionStatusCard(
+              subscriptionStatus: subscription.subscriptionStatus,
+              subscriptionName: subscription.subscriptionName,
+              nextPaymentDate: subscription.nextPaymentDate,
+            ),
+            // Card for displaying next payment information
+            PaymentInfoCard(
+              nextPaymentDate: subscription.nextPaymentDate,
+              paymentAmount: subscription.paymentAmount,
+              paymentHistory: subscription.paymentHistory,
+            ),
+          ],
         ),
       ],
     );

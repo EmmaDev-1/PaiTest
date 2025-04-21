@@ -15,7 +15,7 @@ class AppColors {
 
   static const Color transparent = Color.fromARGB(0, 255, 255, 255);
 
-  static const Color accent = Color.fromARGB(255, 29, 77, 230);
+  static const Color accent = Color.fromARGB(255, 49, 90, 225);
 
   static const Color greenSeafoam = Color.fromARGB(255, 54, 205, 162);
 
@@ -25,7 +25,7 @@ class AppColors {
 
   static const Color darkred = Color.fromARGB(255, 196, 40, 40);
 
-  static const Color darkBlue = Color.fromARGB(255, 14, 21, 86);
+  static const Color darkBlue = Color.fromARGB(255, 16, 25, 110);
 
   static const Color green = Color.fromARGB(255, 76, 175, 80);
 

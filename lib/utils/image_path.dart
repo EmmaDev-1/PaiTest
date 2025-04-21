@@ -12,4 +12,5 @@ class ImagePath {
   static const String visaLogo = 'assets/images/visa_logo.png';
   static const String mastercardLogo = 'assets/images/mastercard_logo.png';
   static const String cardChip = 'assets/images/card_chip.png';
+  static const String subscriptionLogo = 'assets/images/subscription_logo.png';
 }

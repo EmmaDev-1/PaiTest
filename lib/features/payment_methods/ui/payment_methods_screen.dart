@@ -59,15 +59,20 @@ class _PaymentMethodsScreenState extends ConsumerState<PaymentMethodsScreen> {
             label: AppText('Añadir método de pago', color: AppColors.white),
             backgroundColor: AppColors.black,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(30),
             ),
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         );
       },
       loading:
-          () =>
-              const Scaffold(body: Center(child: CircularProgressIndicator())),
+          () => const AppScaffold(
+            backgroundColor: AppColors.white,
+            isScrollable: false,
+            body: Center(
+              child: CircularProgressIndicator(color: AppColors.accent),
+            ),
+          ),
       error: (err, _) => Scaffold(body: Center(child: AppText("Error: \$err"))),
     );
   }

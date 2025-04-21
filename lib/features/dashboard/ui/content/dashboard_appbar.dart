@@ -30,12 +30,15 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       automaticallyImplyLeading: false,
       backgroundColor: AppColors.transparent,
+      surfaceTintColor: AppColors.transparent,
       actionsPadding: EdgeInsets.symmetric(horizontal: 6.w),
       leadingWidth: 20.w,
 
       leading: Padding(
         padding: EdgeInsets.only(left: 6.w),
-        child: AppImage(imageUrl: ImagePath.appLogo, width: 13.w),
+        child: Row(
+          children: [AppImage(imageUrl: ImagePath.appLogo, width: 13.w)],
+        ),
       ),
       actions: [
         GestureDetector(

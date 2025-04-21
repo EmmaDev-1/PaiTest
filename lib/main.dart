@@ -1,20 +1,25 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
+import 'firebase_options.dart';
 import 'routes/app_router.dart';
 import 'utils/colors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Bloquea la app en orientación vertical
+  // Only vertical view
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-  // Ejecuta la app con soporte para Riverpod
+  //Firebase initalisation
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  // Ejecutes app with provider
   runApp(const ProviderScope(child: MyApp()));
 }
 

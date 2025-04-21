@@ -28,7 +28,7 @@ class DashboardScreen extends ConsumerWidget {
           (user) => subscriptionAsync.when(
             data: (subscription) {
               return AppScaffold(
-                isScrollable: false,
+                isScrollable: true,
                 appBar: DashboardAppBar(
                   userName: user.name,
                   profileImageUrl: user.profileImageUrl,
@@ -53,7 +53,9 @@ class DashboardScreen extends ConsumerWidget {
             body: Center(child: Text('Error loading user data: $error')),
           ),
       loading:
-          () => const Scaffold(
+          () => AppScaffold(
+            backgroundColor: AppColors.white,
+            isScrollable: false,
             body: Center(
               child: CircularProgressIndicator(color: AppColors.accent),
             ),

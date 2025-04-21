@@ -249,35 +249,38 @@ class _CreatePaymentMethodScreenState
           AppGaps.gap2h(),
         ],
       ),
-      bottomNavigationBar: AnimatedBackgroundButton(
-        onPressed:
-            _isFormValid
-                ? () {
-                  ref.read(submitPaymentMethodProvider(preview).future).then((
-                    created,
-                  ) {
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: AnimatedBackgroundButton(
+          onPressed:
+              _isFormValid
+                  ? () {
+                    ref.read(submitPaymentMethodProvider(preview).future).then((
+                      created,
+                    ) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: AppText(
+                            'Tarjeta creada: ${created.cardNumber}',
+                            color: AppColors.white,
+                          ),
+                        ),
+                      );
+                      context.pop();
+                    });
+                  }
+                  : () {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: AppText(
-                          'Tarjeta creada: ${created.cardNumber}',
+                          'Por favor completa todos los campos correctamente.',
                           color: AppColors.white,
                         ),
                       ),
                     );
-                    context.pop();
-                  });
-                }
-                : () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: AppText(
-                        'Por favor completa todos los campos correctamente.',
-                        color: AppColors.white,
-                      ),
-                    ),
-                  );
-                },
-        text: 'Crear tarjeta',
+                  },
+          text: 'Crear tarjeta',
+        ),
       ),
     );
   }
