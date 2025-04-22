@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "936538588647",
+    "project_id": "paitest-cb245",
+    "storage_bucket": "paitest-cb245.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936538588647:android:aa685c49d5f89f0119e942",
+        "android_client_info": {
+          "package_name": "com.example.pai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0_eZc_0yklJZvZooF1my9iGG5jQlBU9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

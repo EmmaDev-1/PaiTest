@@ -1,0 +1,22 @@
+{
+    // Formatear al guardar
+    "editor.formatOnSave": true,
+    // Longitud máxima de la línea para el código Dart
+    "dart.lineLength": 80,
+    // Asegurar que se inserte una nueva línea al final del archivo
+    "files.insertFinalNewline": false,
+    // Remover espacios en blanco al final de las líneas al guardar
+    "files.trimTrailingWhitespace": true,
+    // Configuración específica para archivos Dart
+    "[dart]": {
+        // Habilitar el formateo al guardar solo para Dart
+        "editor.formatOnSave": true,
+        // Usar espacios para la indentación
+        "editor.insertSpaces": true,
+        // Tamaño de la indentación
+        "editor.tabSize": 2
+    },
+    "[yaml]": {
+        "editor.formatOnSave": false
+    }
+}
