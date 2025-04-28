@@ -228,7 +228,13 @@ class _CreatePaymentMethodScreenState
                       );
                     }
                   },
+                  onTapOutside: (_) {
+                    _previewKey.currentState?.flip();
+                  },
                   onTap: () {
+                    _previewKey.currentState?.flip();
+                  },
+                  onEditingComplete: () {
                     _previewKey.currentState?.flip();
                   },
                   onSubmitted: (_) {
